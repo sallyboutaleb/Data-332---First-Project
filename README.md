@@ -57,6 +57,8 @@ ggplot(lexicon, aes(x = sentiment)) +
 
 #2 Visual
 Using the dplyr and ggplot2 packages in R, I created a visualization of word counts for each sentiment category in a lexicon called lexicon_2.
+![visual2](https://user-images.githubusercontent.com/118493723/223335209-95899cfd-cd88-4510-b894-15b260a4bbce.png)
+
 
 df <-lexicon_2 %>%
   group_by(sentiment) %>%
