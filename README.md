@@ -53,11 +53,11 @@ ggplot(lexicon, aes(x = sentiment)) +
   geom_histogram(binwidth = 50000, fill = "blue", color = "red", stat="count") + 
   labs (x = "Sentiment", y = "Frequency", title = "Sentimental Analysis Resutls")
   
-<img id="img" width="100%" height="100%" style="display: inline;" src="http://127.0.0.1:31221/graphics/6962eab1-8ede-43b6-a513-c73c119943f6.png">
+![visual1](https://user-images.githubusercontent.com/118493723/223335442-5c70d6c9-c507-4891-8c19-54a0bb172498.png)
+
 
 #2 Visual
 Using the dplyr and ggplot2 packages in R, I created a visualization of word counts for each sentiment category in a lexicon called lexicon_2.
-![visual2](https://user-images.githubusercontent.com/118493723/223335209-95899cfd-cd88-4510-b894-15b260a4bbce.png)
 
 
 df <-lexicon_2 %>%
@@ -73,6 +73,7 @@ df <-lexicon_2 %>%
   ggtitle("Consumer NRC Sentiment") +
   coord_flip()
   
+![visual2](https://user-images.githubusercontent.com/118493723/223335209-95899cfd-cd88-4510-b894-15b260a4bbce.png)
 
 # WordCloud
  Using the wordcloud package in R, I created a wordcloud of sentiment scores in a dataset called SentimentScore2. The resulting wordcloud display the sentiment categories as words, with the size of each word reflecting its frequency in the dataset.
@@ -84,7 +85,8 @@ wordcloud(SentimentScore2$sentiment, scale=c(4,1.5),
           random.order = FALSE,
           rot.per = 0.35, colors = brewer.pal(8, "Dark2")) 
           
-<img id="img" width="100%" height="100%" style="display: inline;" src="http://127.0.0.1:31221/graphics/6962eab1-8ede-43b6-a513-c73c119943f6.png">
+![wordcloud](https://user-images.githubusercontent.com/118493723/223335373-188bacb5-d1be-478a-ace0-1dc2bf2df45c.png)
+
 
 ## ShinyApp 
 
