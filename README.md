@@ -50,11 +50,10 @@ df <-lexicon_2 %>%
   geom_col() +
   guides(fill = "none") + #Turn off the legend
   labs(x = NULL, y = "Word Count") +
-  #  scale_y_continuous(limits = c(0, 500000)) + t
   ggtitle("Consumer NRC Sentiment") +
   coord_flip()
   
-<img id="img" width="100%" height="100%" style="display: inline;" src="http://127.0.0.1:31221/graphics/e26bd8ac-478d-4297-8508-d182b5f15403.png">
+(https://user-images.githubusercontent.com/graphics/e26bd8ac-478d-4297-8508-d182b5f15403.png">
 
 
 # WordCloud
