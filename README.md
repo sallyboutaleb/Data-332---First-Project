@@ -32,11 +32,35 @@ I used the inner_join() function to join the sentiment lexicon with the tidy tex
 
 
 ## Visualize the results: 
-
+ #1 Visual 
 Use the ggplot2 package to visualize the sentiment scores. I used a histogram to show that the negative sentiment outweights the positive sentiment scores. 
 
 <img id="img" width="100%" height="100%" style="display: inline;" src="http://127.0.0.1:31221/graphics/6962eab1-8ede-43b6-a513-c73c119943f6.png">
-# 
+
+#2 Visual
+Using the dplyr and ggplot2 packages in R, I created a visualization of word counts for each sentiment category in a lexicon called lexicon_2.
+
+df <-lexicon_2 %>%
+  group_by(sentiment) %>%
+  summarise(word_count = n()) %>%
+  ungroup() %>%
+  mutate(sentiment = reorder(sentiment, word_count)) %>%
+  #Use `fill = -word_count` to make the larger bars darker
+  ggplot(aes(sentiment, word_count, fill = -word_count)) +
+  geom_col() +
+  guides(fill = "none") + #Turn off the legend
+  labs(x = NULL, y = "Word Count") +
+  #  scale_y_continuous(limits = c(0, 500000)) + t
+  ggtitle("Consumer NRC Sentiment") +
+  coord_flip()
+  
+<img id="img" width="100%" height="100%" style="display: inline;" src="http://127.0.0.1:31221/graphics/e26bd8ac-478d-4297-8508-d182b5f15403.png">
+
+
+# WordCloud
+ Using the wordcloud package in R, I created a wordcloud of sentiment scores in a dataset called SentimentScore2. The resulting wordcloud display the sentiment categories as words, with the size of each word reflecting its frequency in the dataset.
+ 
+<img id="img" width="100%" height="100%" style="display: inline;" src="http://127.0.0.1:31221/graphics/6962eab1-8ede-43b6-a513-c73c119943f6.png">
 
 
 
