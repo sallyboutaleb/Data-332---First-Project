@@ -104,9 +104,11 @@ ui <- fluidPage(
 )
 
 #Define server function
+
 server <- function(input, output) {
   
   #Generate histogram
+  
   output$histogram <- renderPlot({
     ggplot(data = SentimentScore2, aes(x = sentiment)) +
       geom_histogram()
@@ -114,4 +116,5 @@ server <- function(input, output) {
 }
 
 #Run the app
+
 shinyApp(ui, server)
