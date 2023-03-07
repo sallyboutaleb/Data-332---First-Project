@@ -35,7 +35,7 @@ I used the inner_join() function to join the sentiment lexicon with the tidy tex
 
 Use the ggplot2 package to visualize the sentiment scores. I used a histogram to show that the negative sentiment outweights the positive sentiment scores. 
 
-
+<img id="img" width="100%" height="100%" style="display: inline;" src="http://127.0.0.1:31221/graphics/6962eab1-8ede-43b6-a513-c73c119943f6.png">
 # 
 
 
