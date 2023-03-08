@@ -90,6 +90,7 @@ wordcloud(SentimentScore2$sentiment, scale=c(4,1.5),
 
 ## ShinyApp 
  This app allows users to choose variables for the x-axis, y-axis, and split-by variables, and generates an interactive plot and data table based on those choices.
+ 
 column_names<-colnames(lexicon)
 ui<-fluidPage( 
   
