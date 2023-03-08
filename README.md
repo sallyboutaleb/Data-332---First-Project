@@ -89,32 +89,32 @@ wordcloud(SentimentScore2$sentiment, scale=c(4,1.5),
 
 
 ## ShinyApp 
-
-#Define UI
-ui <- fluidPage(
-  titlePanel("Sentimental Analysis Resutls"),
-  sidebarLayout(
-    sidebarPanel(
-      # Add input elements here, if needed
+ This app allows users to choose variables for the x-axis, y-axis, and split-by variables, and generates an interactive plot and data table based on those choices.
+column_names<-colnames(lexicon)
+ui<-fluidPage( 
+  
+  titlePanel(title = "Company repomse to Consumer complaints"),
+  
+  
+  fluidRow(
+    column(2,
+           selectInput('X', 'choose x',column_names,column_names[4]),
+           selectInput('Y', 'Choose Y',column_names,column_names[2]),
+           selectInput('Splitby', 'Split By', column_names,column_names[5])
     ),
-    mainPanel(
-      plotOutput("histogram")
-    )
+    column(4,plotOutput('plot_01')),
+    column(6,DT::dataTableOutput("table_01", width = "100%"))
   )
 )
-
-#Define server function
-
-server <- function(input, output) {
+server<-function(input,output){
   
-  #Generate histogram
-  
-  output$histogram <- renderPlot({
-    ggplot(data = SentimentScore2, aes(x = sentiment)) +
-      geom_histogram()
+  output$plot_01 <- renderPlot({
+    ggplot(lexicon,aes_string(x=input$X,y=input$Y))+
+      geom_smooth()
+    
   })
+  
+  output$table_01<-DT::renderDataTable(lexicon[,c(input$X,input$Y,input$Splitby)],options = list(pageLength = 4))
 }
 
-#Run the app
-
-shinyApp(ui, server)
+shinyApp(ui=ui, server=server)
